@@ -1,0 +1,26 @@
+[
+  {
+    "model": "api.user",
+    "pk": 1,
+    "fields": {
+        "phone_number": "79940111108",
+        "invite_code": "kkBIEl",
+        "authorization_code": "9043",
+        "referral_activated": false,
+        "referred_users": [],
+        "last_login": "2023-08-18T22:43:57.260184+03:00"
+    }
+  },
+    {
+    "model": "api.user",
+    "pk": 2,
+    "fields": {
+        "phone_number": "79011236547",
+        "invite_code": "sdf1A",
+        "authorization_code": "2018",
+        "referral_activated": false,
+        "referred_users": [],
+        "last_login": "2023-07-18T22:43:57.260184+03:00"
+    }
+  }
+]
