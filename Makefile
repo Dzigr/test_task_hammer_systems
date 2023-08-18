@@ -18,3 +18,9 @@ commit:
 
 req:
 	poetry export --without-hashes --format=requirements.txt > requirements.txt
+
+locale_up:
+	django-admin makemessages -l ru
+
+locale_comp:
+	django-admin compilemessages
