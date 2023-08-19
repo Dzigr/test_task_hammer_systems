@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "87574e14-5b7a-420e-bea5-ee2b04ff0d72",
+		"name": "Referral app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26167358"
+	},
+	"item": [
+		{
+			"name": "Valid phone number",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "79121478528",
+							"type": "text"
+						},
+						{
+							"key": "authorization_code",
+							"value": "8694",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://referral-app.onrender.com/api/v1/auth/phone/",
+					"protocol": "https",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"phone",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invalid phone number",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "7994011",
+							"type": "text"
+						},
+						{
+							"key": "authorization_code",
+							"value": "8694",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://referral-app.onrender.com/api/v1/auth/phone/",
+					"protocol": "http",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"phone",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify authorization code",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "79121478528",
+							"type": "text"
+						},
+						{
+							"key": "authorization_code",
+							"value": "3461",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://referral-app.onrender.com/api/v1/auth/verify_code/?phone_number=79940111102&authorization_code=1817",
+					"protocol": "http",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"verify_code",
+						""
+					],
+					"query": [
+						{
+							"key": "phone_number",
+							"value": "79940111102"
+						},
+						{
+							"key": "authorization_code",
+							"value": "1817"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaG9uZV9udW1iZXIiOiI3OTEyMTQ3ODUyOCIsImV4cCI6MTY5MjQxOTMxMn0.VQrCuZyiNTaYEdA6eNUrY5P94BqKobSGk3hSszLoKAc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://referral-app.onrender.com/api/v1/user/profile/",
+					"protocol": "http",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access denied to user profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "79940111104",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "authorization_code",
+							"value": "7884",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "invite_code",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://referral-app.onrender.com/api/v1/user/profile/",
+					"protocol": "http",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add referral",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaG9uZV9udW1iZXIiOiI3OTEyMTQ3ODUyNyIsImV4cCI6MTY5MjQwODMzMn0.NES1N8elyKfT0Z93_yAQrN3a5uJRl6WRcJ3fKAqP2b4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "invite_code",
+							"value": "kNDH6h",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8000/api/v1/user/profile/add_referral/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"profile",
+						"add_referral",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valid phone number second user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "79121478585",
+							"type": "text"
+						},
+						{
+							"key": "authorization_code",
+							"value": "8694",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://referral-app.onrender.com/api/v1/auth/phone/",
+					"protocol": "https",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"phone",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify authorization code second user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "phone_number",
+							"value": "79121478585",
+							"type": "text"
+						},
+						{
+							"key": "authorization_code",
+							"value": "3396",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://referral-app.onrender.com/api/v1/auth/verify_code/?phone_number=79940111102&authorization_code=1817",
+					"protocol": "http",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"verify_code",
+						""
+					],
+					"query": [
+						{
+							"key": "phone_number",
+							"value": "79940111102"
+						},
+						{
+							"key": "authorization_code",
+							"value": "1817"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Second user profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaG9uZV9udW1iZXIiOiI3OTEyMTQ3ODU4NSIsImV4cCI6MTY5MjQxOTQ0OX0.1HZRxSxHUJHWH4Y9-IcSBuGV-IgAtQKP02Ujd-ufAEs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://referral-app.onrender.com/api/v1/user/profile/",
+					"protocol": "http",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add referral",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaG9uZV9udW1iZXIiOiI3OTEyMTQ3ODUyOCIsImV4cCI6MTY5MjQxOTMxMn0.VQrCuZyiNTaYEdA6eNUrY5P94BqKobSGk3hSszLoKAc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "invite_code",
+							"value": "7IBJeD",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://referral-app.onrender.com/api/v1/user/profile/add_referral/",
+					"protocol": "http",
+					"host": [
+						"referral-app",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"profile",
+						"add_referral",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
