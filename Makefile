@@ -24,3 +24,12 @@ locale_up:
 
 locale_comp:
 	django-admin compilemessages
+
+docker-install: env
+	docker-compose build
+
+docker:
+	docker-compose up -d
+
+test:
+	poetry run python manage.py test
